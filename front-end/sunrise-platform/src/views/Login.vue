@@ -4,10 +4,10 @@
       <form id="login-form">
         <h2 id="login-title">登录</h2>
         <label for="username">学号</label>
-        <input type="text" name="username" id="username" placeholder="学号"/>
+        <input type="text" name="username" id="username" placeholder="学号" v-model="username"/>
         <label for="password">密码</label>
-        <input type="password" name="password" id="password" placeholder="密码"/>
-        <input type="button" value="登录">
+        <input type="password" name="password" id="password" placeholder="密码" v-model="password"/>
+        <input type="button" value="登录" @click="login"/>
       </form>
     </div>
   </div>
@@ -70,6 +70,17 @@
 
 <script>
     export default {
-        name: "Login"
+        name: "Login",
+        data: () => {
+            return {
+                username: '',
+                password: '',
+            }
+        },
+        methods: {
+            login() {
+                throw 'Not implemented';
+            }
+        }
     }
 </script>
