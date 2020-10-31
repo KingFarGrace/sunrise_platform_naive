@@ -4,7 +4,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import team.sunrise.managementplatform.entity.LoginData;
+import team.sunrise.managementplatform.entity.UserInputData;
+import team.sunrise.managementplatform.entity.UserLoginData;
 import team.sunrise.managementplatform.entity.response.AccountResponse;
 import team.sunrise.managementplatform.entity.response.Response;
 import team.sunrise.managementplatform.service.AccountService;
@@ -19,8 +20,10 @@ public class AccountController {
     }
 
     @PostMapping("login")
-    Response login(@RequestBody LoginData data) {
-        if (accountService.login(data)) {
+    Response login(@RequestBody UserInputData data) {
+        UserLoginData userLoginData = accountService.login(data);
+        if (userLoginData != null) {
+            AccountResponse.userLoginData = userLoginData;
             return AccountResponse.ACCOUNT_LOGIN_SUCCESS;
         }
         return AccountResponse.ACCOUNT_LOGIN_WRONG_PASSWORD;
