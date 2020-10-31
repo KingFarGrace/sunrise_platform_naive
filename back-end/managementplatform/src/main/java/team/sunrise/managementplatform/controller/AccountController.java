@@ -21,7 +21,7 @@ public class AccountController {
 
     @PostMapping("login")
     Response login(@RequestBody UserInputData data) {
-        // More type of return code to be defined...
+        //TODO More type of return code to be defined...
         UserLoginData userLoginData = accountService.login(data);
         if (userLoginData != null) {
             return new AccountResponse(0, "login success", userLoginData);

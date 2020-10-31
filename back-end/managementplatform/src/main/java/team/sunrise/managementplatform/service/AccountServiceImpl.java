@@ -16,7 +16,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public UserLoginData login(UserInputData data) {
-        // TODO: implement login
         UserLoginData userLoginData = userLoginMapper.selectByKey(data);
         if(Objects.equals(data.getPassword(), userLoginData.getPassword())){
             return userLoginData;

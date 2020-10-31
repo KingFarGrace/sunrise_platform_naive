@@ -8,30 +8,20 @@ public class UserLoginData {
     private String password;
     private String telephone;
     private String mail;
-    private boolean isNormal;
     private boolean isSysAdmin;
     private boolean isTeacher;
 
     public UserLoginData() {}
 
     public UserLoginData(String uid, String username, String telephone, String mail,
-                         String password, boolean isNormal, boolean isSysAdmin, boolean isTeacher) {
+                         String password, boolean isSysAdmin, boolean isTeacher) {
         this.uid = uid;
         this.username = username;
         this.password = password;
         this.telephone = telephone;
         this.mail = mail;
-        this.isNormal = isNormal;
         this.isSysAdmin = isSysAdmin;
         this.isTeacher = isTeacher;
-    }
-
-    public boolean isNormal() {
-        return isNormal;
-    }
-
-    public void setNormal(boolean normal) {
-        isNormal = normal;
     }
 
     public boolean isSysAdmin() {
