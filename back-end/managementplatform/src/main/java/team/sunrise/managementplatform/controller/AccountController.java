@@ -21,11 +21,11 @@ public class AccountController {
 
     @PostMapping("login")
     Response login(@RequestBody UserInputData data) {
+        // More type of return code to be defined...
         UserLoginData userLoginData = accountService.login(data);
         if (userLoginData != null) {
-            AccountResponse.userLoginData = userLoginData;
-            return AccountResponse.ACCOUNT_LOGIN_SUCCESS;
+            return new AccountResponse(0, "login success", userLoginData);
         }
-        return AccountResponse.ACCOUNT_LOGIN_WRONG_PASSWORD;
+        return new AccountResponse(1, "login failed", null);
     }
 }
