@@ -1,15 +1,26 @@
 package team.sunrise.managementplatform.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import team.sunrise.managementplatform.entity.LoginData;
+import team.sunrise.managementplatform.entity.UserInputData;
+import team.sunrise.managementplatform.entity.UserLoginData;
+import team.sunrise.managementplatform.mapper.UserLoginMapper;
 
 import java.util.Objects;
 
 @Service
 public class AccountServiceImpl implements AccountService {
+
+    @Autowired
+    UserLoginMapper userLoginMapper;
+
     @Override
-    public boolean login(LoginData data) {
-        // TODO: implement login
-        return Objects.equals(data.getUsername(), "admin") && Objects.equals(data.getPassword(), "123456");
+    public UserLoginData login(UserInputData data) {
+        UserLoginData userLoginData = userLoginMapper.selectByKey(data);
+        if(Objects.equals(data.getPassword(), userLoginData.getPassword())){
+            return userLoginData;
+        } else {
+            return null;
+        }
     }
 }

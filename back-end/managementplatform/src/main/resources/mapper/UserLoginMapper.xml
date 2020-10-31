@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="team.sunrise.managementplatform.mapper.UserLoginMapper">
+
+    <select id="selectById" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserLoginData">
+        SELECT * FROM v_user_login_info WHERE uid=#{uid}
+    </select>
+
+    <select id="selectByName" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserLoginData">
+        SELECT * FROM v_user_login_info WHERE username=#{username}
+    </select>
+
+    <select id="selectByPhone" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserLoginData">
+        SELECT * FROM v_user_login_info WHERE telephone=#{telephone}
+    </select>
+
+    <select id="selectByEmail" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserLoginData">
+        SELECT * FROM v_user_login_info WHERE mail=#{mail}
+    </select>
+
+    <!--  使用uid, username, telephone和mail中的任一项查找元素  -->
+    <select id="selectByKey" parameterType="team.sunrise.managementplatform.entity.UserInputData" resultType="team.sunrise.managementplatform.entity.UserLoginData">
+        SELECT * FROM v_user_login_info
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <choose>
+                <when test="uid != null and username == null and telephone == null and mail == null">
+                    uid=#{uid}
+                </when>
+                <when test="uid == null and username != null and telephone == null and mail == null">
+                    username=#{username}
+                </when>
+                <when test="uid == null and username == null and telephone != null and mail == null">
+                    telephone=#{telephone}
+                </when>
+                <when test="uid == null and username == null and telephone == null and mail != null">
+                    mail=#{mail}
+                </when>
+            </choose>
+        </trim>
+    </select>
+</mapper>

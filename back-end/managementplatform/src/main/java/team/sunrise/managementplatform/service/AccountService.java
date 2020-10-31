@@ -1,7 +1,8 @@
 package team.sunrise.managementplatform.service;
 
-import team.sunrise.managementplatform.entity.LoginData;
+import team.sunrise.managementplatform.entity.UserInputData;
+import team.sunrise.managementplatform.entity.UserLoginData;
 
 public interface AccountService {
-    boolean login(LoginData data);
+    UserLoginData login(UserInputData data);
 }

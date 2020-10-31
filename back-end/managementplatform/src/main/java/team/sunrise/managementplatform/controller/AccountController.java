@@ -4,7 +4,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import team.sunrise.managementplatform.entity.LoginData;
+import team.sunrise.managementplatform.entity.UserInputData;
+import team.sunrise.managementplatform.entity.UserLoginData;
 import team.sunrise.managementplatform.entity.response.AccountResponse;
 import team.sunrise.managementplatform.entity.response.Response;
 import team.sunrise.managementplatform.service.AccountService;
@@ -19,10 +20,12 @@ public class AccountController {
     }
 
     @PostMapping("login")
-    Response login(@RequestBody LoginData data) {
-        if (accountService.login(data)) {
-            return AccountResponse.ACCOUNT_LOGIN_SUCCESS;
+    Response login(@RequestBody UserInputData data) {
+        //TODO More type of return code to be defined...
+        UserLoginData userLoginData = accountService.login(data);
+        if (userLoginData != null) {
+            return new AccountResponse(0, "login success", userLoginData);
         }
-        return AccountResponse.ACCOUNT_LOGIN_WRONG_PASSWORD;
+        return new AccountResponse(1, "login failed", null);
     }
 }

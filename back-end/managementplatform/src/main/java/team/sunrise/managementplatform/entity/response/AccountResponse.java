@@ -1,8 +1,9 @@
 package team.sunrise.managementplatform.entity.response;
 
+import team.sunrise.managementplatform.entity.UserLoginData;
+
 public class AccountResponse extends Response {
-    public static final Response ACCOUNT_LOGIN_SUCCESS = new AccountResponse(0, "login success");
-    public static final Response ACCOUNT_LOGIN_WRONG_PASSWORD = new AccountResponse(1, "wrong password");
+    private UserLoginData userLoginData = null;
 
     @Override
     protected int groupCode() {
@@ -11,7 +12,8 @@ public class AccountResponse extends Response {
 
     public AccountResponse() {}
 
-    public AccountResponse(int code, String message) {
+    public AccountResponse(int code, String message, UserLoginData userLoginData) {
         super(code, message);
+        this.userLoginData = userLoginData;
     }
 }
