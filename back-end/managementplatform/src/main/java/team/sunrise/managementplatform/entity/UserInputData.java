@@ -3,35 +3,24 @@ package team.sunrise.managementplatform.entity;
 import java.util.Objects;
 
 public class UserInputData {
-    private String uid;
-    private String username;
+    private String key;
     private String password;
-    private String telephone;
-    private String mail;
+    private String loginMethod;
 
     public UserInputData() {}
 
-    public UserInputData(String uid, String username, String telephone, String mail, String password) {
-        this.uid = uid;
-        this.username = username;
+    public UserInputData(String key, String password, String loginMethod) {
+        this.key = key;
         this.password = password;
-        this.telephone = telephone;
-        this.mail = mail;
+        this.loginMethod = loginMethod;
     }
 
-    public String getUid() {
-        return uid;
+    public String getKey() {
+        return key;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getPassword() {
@@ -42,25 +31,12 @@ public class UserInputData {
         this.password = password;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String getLoginMethod() {
+        return loginMethod;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(uid, username, password, telephone, mail);
+    public void setLoginMethod(String loginMethod) {
+        this.loginMethod = loginMethod;
     }
 
     @Override
@@ -72,10 +48,13 @@ public class UserInputData {
             return false;
         }
         UserInputData that = (UserInputData) o;
-        return Objects.equals(uid, that.uid) &&
-                Objects.equals(username, that.username) &&
+        return Objects.equals(key, that.key) &&
                 Objects.equals(password, that.password) &&
-                Objects.equals(telephone, that.telephone) &&
-                Objects.equals(mail, that.mail);
+                Objects.equals(loginMethod, that.loginMethod);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(key, password, loginMethod);
     }
 }

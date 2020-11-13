@@ -13,6 +13,9 @@ public class AccountServiceTests {
 
     @Test
     void loginTest() {
-        System.out.println(accountService.login(new UserInputData("120181080602", "", "", "", "123456")));
+        System.out.println(accountService.identifyUser("120181080602", "uid"));
+        System.out.println(accountService.identifyUser("ZHANG", "username"));
+        System.out.println(accountService.identifyUser("15611311841", "telephone"));
+        System.out.println(accountService.identifyUser("1136421682@qq.com", "mail"));
     }
 }

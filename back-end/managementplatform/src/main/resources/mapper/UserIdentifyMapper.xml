@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--suppress ALL -->
+<mapper namespace="team.sunrise.managementplatform.mapper.UserIdentifyMapper">
+
+    <select id="selectById" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserIdentityData">
+        SELECT * FROM v_user_login_info WHERE uid=#{uid}
+    </select>
+
+    <select id="selectByName" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserIdentityData">
+        SELECT * FROM v_user_login_info WHERE username=#{username}
+    </select>
+
+    <select id="selectByPhone" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserIdentityData">
+        SELECT * FROM v_user_login_info WHERE telephone=#{telephone}
+    </select>
+
+    <select id="selectByEmail" parameterType="String" resultType="team.sunrise.managementplatform.entity.UserIdentityData">
+        SELECT * FROM v_user_login_info WHERE mail=#{mail}
+    </select>
+</mapper>
