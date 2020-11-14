@@ -2,6 +2,9 @@ package team.sunrise.managementplatform.entity.response;
 
 import java.util.Objects;
 
+/**
+ * @author SilentWolf1997
+ */
 public abstract class Response {
     private int code;
     private String message;

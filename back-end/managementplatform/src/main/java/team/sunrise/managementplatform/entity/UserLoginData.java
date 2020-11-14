@@ -1,43 +1,37 @@
 package team.sunrise.managementplatform.entity;
 
+import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author ZHANGKAIHENG
+ */
 public class UserLoginData {
     private String uid;
     private String username;
     private String password;
     private String telephone;
     private String mail;
-    private boolean isSysAdmin;
-    private boolean isTeacher;
+    private int age;
+    private String sex;
+    private String department;
+    private String signature;
+    private List<Task> tasks;
 
     public UserLoginData() {}
 
-    public UserLoginData(String uid, String username, String telephone, String mail,
-                         String password, boolean isSysAdmin, boolean isTeacher) {
+    public UserLoginData(String uid, String username, String password, String telephone, String mail,
+                         int age, String sex, String department, String signature, List<Task> tasks) {
         this.uid = uid;
         this.username = username;
         this.password = password;
         this.telephone = telephone;
         this.mail = mail;
-        this.isSysAdmin = isSysAdmin;
-        this.isTeacher = isTeacher;
-    }
-
-    public boolean isSysAdmin() {
-        return isSysAdmin;
-    }
-
-    public void setSysAdmin(boolean sysAdmin) {
-        isSysAdmin = sysAdmin;
-    }
-
-    public boolean isTeacher() {
-        return isTeacher;
-    }
-
-    public void setTeacher(boolean teacher) {
-        isTeacher = teacher;
+        this.age = age;
+        this.sex = sex;
+        this.department = department;
+        this.signature = signature;
+        this.tasks = tasks;
     }
 
     public String getUid() {
@@ -80,9 +74,44 @@ public class UserLoginData {
         this.mail = mail;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(uid, username, password, telephone, mail);
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override
@@ -98,6 +127,12 @@ public class UserLoginData {
                 Objects.equals(username, that.username) &&
                 Objects.equals(password, that.password) &&
                 Objects.equals(telephone, that.telephone) &&
-                Objects.equals(mail, that.mail);
+                Objects.equals(mail, that.mail) &&
+                Objects.equals(tasks, that.tasks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uid, username, password, telephone, mail, tasks);
     }
 }

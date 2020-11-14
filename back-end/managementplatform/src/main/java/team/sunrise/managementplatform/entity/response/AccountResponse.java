@@ -2,6 +2,9 @@ package team.sunrise.managementplatform.entity.response;
 
 import team.sunrise.managementplatform.entity.UserLoginData;
 
+/**
+ * @author SilentWolf1997
+ */
 public class AccountResponse extends Response {
     private UserLoginData userLoginData = null;
 
