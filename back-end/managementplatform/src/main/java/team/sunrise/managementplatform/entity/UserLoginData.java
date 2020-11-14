@@ -3,6 +3,9 @@ package team.sunrise.managementplatform.entity;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author ZHANGKAIHENG
+ */
 public class UserLoginData {
     private String uid;
     private String username;

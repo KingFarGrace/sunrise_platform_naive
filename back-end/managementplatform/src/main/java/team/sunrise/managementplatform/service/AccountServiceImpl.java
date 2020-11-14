@@ -9,6 +9,9 @@ import team.sunrise.managementplatform.mapper.UserIdentifyMapper;
 import team.sunrise.managementplatform.mapper.UserLoginMapper;
 import team.sunrise.managementplatform.service.loginMethod.LoginMethodFactory;
 
+/**
+ * @author ZHANGKAIHENG
+ */
 @Service
 public class AccountServiceImpl implements AccountService {
 

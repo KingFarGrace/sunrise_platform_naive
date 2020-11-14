@@ -2,6 +2,12 @@ package team.sunrise.managementplatform.shiro;
 
 import org.apache.shiro.authc.AuthenticationToken;
 
+/**
+ * <p>
+ *     Custom token
+ * </p>
+ * @author ZHANGKAIHENG
+ */
 public class UserToken implements AuthenticationToken {
 
     private String username;

@@ -2,6 +2,9 @@ package team.sunrise.managementplatform.entity;
 
 import java.util.Objects;
 
+/**
+ * @author ZHANGKAIHENG
+ */
 public class UserInputData {
     private String key;
     private String password;

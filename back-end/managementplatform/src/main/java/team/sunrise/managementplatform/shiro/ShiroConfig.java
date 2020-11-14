@@ -9,10 +9,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * <p>Apache Shiro framework configuration class</p>
+ * @author ZHANGKAIHENG
+ */
 @Configuration
 public class ShiroConfig {
 
-    // ShiroFilterFactoryBean
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(@Autowired DefaultWebSecurityManager defaultWebSecurityManager) {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
@@ -25,7 +28,6 @@ public class ShiroConfig {
         return bean;
     }
 
-    // DefaultWebSecurityManager
     @Bean
     public DefaultWebSecurityManager defaultWebSecurityManager(@Autowired UserRealm userRealm) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -33,7 +35,11 @@ public class ShiroConfig {
         return securityManager;
     }
 
-    // create realm
+
+    /**
+     * @return {@code userRealm}
+     * @see UserRealm
+     */
     @Bean
     public UserRealm userRealm() {
         return new UserRealm();

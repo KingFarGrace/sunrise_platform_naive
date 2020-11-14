@@ -9,6 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import team.sunrise.managementplatform.entity.UserIdentityData;
 import team.sunrise.managementplatform.service.AccountService;
 
+/**
+ * <p>
+ *     Custom realm
+ * </p>
+ * @author ZHANGKAIHENG
+ */
 public class UserRealm extends AuthorizingRealm {
     @Autowired
     AccountService accountService;
@@ -37,6 +43,7 @@ public class UserRealm extends AuthorizingRealm {
      * 使Realm识别自定义token
      * @param token
      * @return
+     * @see UserToken
      */
     @Override
     public boolean supports(AuthenticationToken token) {
