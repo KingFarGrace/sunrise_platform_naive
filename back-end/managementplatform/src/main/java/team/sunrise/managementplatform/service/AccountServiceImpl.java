@@ -22,7 +22,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public UserIdentityData identifyUser(String key, String loginMethod) {
-        LoginMethodFactory loginMethodFactory = new LoginMethodFactory();
+        LoginMethodFactory loginMethodFactory = LoginMethodFactory.getLoginMethodFactory();
         return loginMethodFactory.executeMethod(userIdentifyMapper, loginMethod, key);
     }
 

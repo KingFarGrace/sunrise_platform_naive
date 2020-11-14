@@ -33,11 +33,11 @@ public class AccountController {
         try {
             subject.login(token);
         } catch (UnknownAccountException uae) {
-            // uae.printStackTrace();
+            uae.printStackTrace();
             // no user matched，return code 101
             return new AccountResponse(1, "no user matched", null);
         } catch (IncorrectCredentialsException ice) {
-            // ice.printStackTrace();
+            ice.printStackTrace();
             // wrong password，return code 102
             return new AccountResponse(2, "wrong password", null);
         }
