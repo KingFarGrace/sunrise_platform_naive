@@ -8,8 +8,8 @@ mybatis:
 spring:
   datasource:
     username: root
-    password: 132546
-    url: jdbc:mysql://localhost:3306/xenoneon_management_platform_prj?serverTimezone=UTC&useUnicode=True&charactorEncoding=utf-8
+    password: why
+    url: jdbc:mysql://localhost:3306/sunrise?serverTimezone=UTC&useUnicode=True&charactorEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     # 常规配置
